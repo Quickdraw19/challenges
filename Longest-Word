@@ -6,7 +6,8 @@ function LongestWord(sen) {
 
   wordArray.forEach(function(val, index) {
     // Filter out non-alphanumeric characters
-    val = val.replace(/[^A-Z][^a-z][^0-9]/gi, '');
+    val = val.replace(/[^A-Za-z0-9]/gi, '');
+    
     if (val.length > longest.length) {
       longest = val;
     }
