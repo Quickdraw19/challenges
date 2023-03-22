@@ -13,8 +13,7 @@ function LongestWord(sen) {
     }
   });
 
-  return longest; 
-
+  return longest;
 }
    
 // keep this function call here 
