@@ -16,6 +16,7 @@ function flippingBits(number) {
     
     // Iterate through each of the 32 digits
     for (let i = 0; i < 32; i++) {
+        // Perform bitwise XOR - bascially flips the bit
         binNumFlipped[i] = binNum[i] ^ 1;
     }
     
