@@ -6,15 +6,19 @@
  */
 
 function diagonalDifference(arr) {
-    let diag1=0, diag2=0;
-    let size = arr.length;
-    let j = size-1;
+    let diag1 = 0;
+    let diag2 = 0;
+    let arrSize = arr.length;
+    let lastIndex = arrSize - 1;
     
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < arrSize; i++) {
+        // Sum the digits starting with [0,0], stepping down 1 and to the right by one
         diag1 += arr[i][i];
-        diag2 += arr[i][j];
-        j--;
+        
+        // Sum the digits starting with [0, lastIndex], stepping down 1 and to the left by 1
+        diag2 += arr[i][lastIndex];
+        lastIndex--;
     }
-
+    
     return Math.abs(diag1 - diag2);
 }
