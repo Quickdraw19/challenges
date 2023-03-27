@@ -13,12 +13,19 @@ function countingValleys(steps, path) {
     let valleys = 0, level = 0;
     
     for (let step = 0; step < pathArray.length; step++) {
-        let direction = pathArray[i];
+        let direction = pathArray[step];
+        
         if (direction === "D") {
+            if (level === 0) {
+                valleys++;
+            }
+            
             level -= 1;
-            valleys++;
-        } else { // Logically direction = "U"
-            level += 1
+            
+        } else { // Logical direction must be "U"
+            level += 1;
         }
     }
+    
+    return valleys;
 }
