@@ -9,17 +9,14 @@
  */
 
 function twoArrays(k, A, B) {
-    A.sort((a,b) => a - b);
-    B.sort((a,b) => b - a);
-    let len = A.length;
+    A.sort((a,b) => a - b); // Sort the first array
+    B.sort((a,b) => b - a); // Reverse sort the second array
     
-    let result = "YES";
-    
-    for (let i = 0; i < len; i++) {
-        if (A[i] + B[i] < k) {
-            result = "NO";
+    for (let i = 0; i < A.length; i++) {
+        if (A[i] + B[i] < k ) {
+            return "NO";
         }
     }
     
-    return result;
+    return "YES";
 }
