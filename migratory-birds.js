@@ -8,6 +8,8 @@
 function migratoryBirds(birds) {
     birds.sort((a,b) => a-b);
     let birdGroups = {};
+    let birdMaj = 0;
+    let birdCount = 0;
     
     for (let i = 0; i < birds.length; i++) {
         if (birdGroups[birds[i]]) {
@@ -16,10 +18,13 @@ function migratoryBirds(birds) {
             birdGroups[birds[i]] = 1;
         }
     }
-    let mostest = 0;
+    
     for (const [key, value] of Object.entries(birdGroups)) {
-        mostest = (value > mostest) ? key : mostest;
+        if (value > birdCount) {
+            birdCount = value;
+            birdMaj = key;
+        }
     }
     
-    return mostest;
+    return birdMaj;
 }
