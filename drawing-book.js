@@ -7,11 +7,11 @@
  *  2. INTEGER p
  */
 
-function pageCount(length, page) {
+function pageCount(length, page) {//10, 9
     let currPage = 1;
     
-    if (Math.ceil(length / 2) < page) {
-        page = length - page;
+    if (page > Math.floor(length / 2)) {
+        page = length - page + ((length + 1) % 2);
     }
     
     if (currPage === 1) {
