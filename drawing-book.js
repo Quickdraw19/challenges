@@ -10,8 +10,8 @@
 function pageCount(length, page) {
     let currPage = 1;
     
-    if (length / 2 < page) {
-        page = length - page + 1;
+    if (Math.ceil(length / 2) < page) {
+        page = length - page;
     }
     
     if (currPage === 1) {
