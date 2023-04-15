@@ -40,7 +40,7 @@
                             break;
                         }
 
-                        subjectInts3.push(subjectInts2[j])
+                        subjectInts3.push(subjectInts2[j]);
                     }
                 }
 
