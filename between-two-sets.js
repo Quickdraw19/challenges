@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
             /*
             * Complete the 'getTotalX' function below.
             *
@@ -13,16 +18,17 @@
 
             function getTotalX(a, b) {
                 let subjectInts1 = [];
-                let subjectInt = Math.min(...a);
+                //let subjectInt = Math.min(...a);
                 let maxA = Math.max(...a);
                 let maxB = Math.max(...b) / maxA;
-                let counter = subjectInt;
+                let counter = maxA;
 
                 // Fill subject ints
                 while (counter <= maxB) {
                     subjectInts1.push(counter);
                     counter += 2;
                 }
+//return subjectInts1;
 
                 let subjectInts2 = [];
 
@@ -31,6 +37,7 @@
                         subjectInts2.push(subjectInts1[i]);
                     }
                 }
+//return subjectInts2;
 
                 let subjectInts3 = [];
                 
@@ -40,10 +47,84 @@
                             break;
                         }
 
-                        subjectInts3.push(subjectInts2[j]);
+                        subjectInts3.push(subjectInts2[j])
                     }
                 }
+//return  subjectInts3;
 
                 let results = subjectInts3.filter((val, idx, arr) => arr.indexOf(val) === idx);
+//return results;
                 return results.length;
             }
+
+            window.onload = function () {
+                //let a = [2, 4];
+                //let b = [16, 32, 96];
+                // 3 numbers: 4, 8, 16
+
+                let a = [3, 4];
+                let b = [24, 48];
+                // 2 numbers: ?, ?
+
+                let result = getTotalX(a, b);
+                document.getElementById('container').innerHTML = result;
+            }
+        </script>
+        <p>The number of integers between the arrays is:</p>
+        <div id="container"></div>
+
+        <div>
+            <h1>Instructions</h1>
+            <p>
+                There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
+                <ol>
+                    <li>The elements of the first array are all factors of the integer being considered</li>
+                    <li>The integer being considered is a factor of all elements of the second array</li>
+                </ol>
+            </p>
+            <p>
+                These numbers are referred to as being <i>between</i> two arrays. Determine how many such numbers exist.
+            </p>
+        <h2>Example</h2>
+        <code>a = [2,6]</code><br>
+        <code>b = [24,36]</code>
+
+        <p>There are two numbers between the arrays: 6 and 12.</p>
+        6 % 2 = 0<br>
+        6 % 6 = 0<br>
+        24 % 6 = 0 and<br>
+        36 % 6 = 0 for the first value.<br><br>
+        12 % 2 = 0<br>
+        12 % 6 = 0<br>
+        and<br>
+        24 % 12 = 0<br>
+        36 % 12 = 0 for the second value.<br>
+        Return 2.
+
+        <h2>Function Description</h2>
+
+        <p></p>Complete the <i>getTotalX</i> function. It should return the number of integers that are between the sets.
+        getTotalX has the following parameters:</p>
+        <ul>
+            <li><i>int a[n]</i>: an array of integers</li>
+            <li><i>int b[m]</i>: an array of integers</li>
+        </ul>
+
+        <h3>Returns</h3>
+        <ul>
+            <li><i>int</i>: the number of integers that are between the sets</li>
+        </ul>
+
+        <h3>Sample Input</h3>
+        <code>a = [2,4]</code><br>
+        <code>b = [16,32,96]</code>
+
+        <h3>Sample Output</h3>
+        <code>3</code>
+
+        <h3>Explaination</h3>
+        <p>2 and 4 divide evenly into 4, 8, 12, and 16.</p>
+        <p>4, 8, and 16 divide evenly into 16, 32, and 96.</p>
+        <p>4, 8, and 16 are the only three numbers for which each element of <i>a</i> is a factor and each is a factor of all elements of <i>b</i>.</p>
+    </body>
+</html>
