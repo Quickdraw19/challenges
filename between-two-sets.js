@@ -21,32 +21,43 @@
                 let maxA = Math.max(...a);
                 let maxB = Math.max(...b);
                 let counter = maxA;
+                let compare = [];
 
                 // Fill subject ints
                 while (counter <= maxB) {
                     subjectInts1.push(counter);
                     counter += 2;
                 }
+//return subjectInts1;
 
                 // Eliminate possible factors of 'a' values
                 let subjectInts2 = [];
-
+                
                 for (let j = 0; j < subjectInts1.length; j++) {
+                    compare = [];
                     for (let i = 0; i < b.length; i++) {
-                        if (b[i] % subjectInts1[j] > 0) {
-                            break;
-                        }
+                        compare[i] = b[i] % subjectInts1[j] > 0;
+                    }
 
-                        subjectInts2.push(subjectInts1[j])
+                    let keep = true;
+                    for (let x = 0; x < compare.length; x++) {
+                        if (compare[x]) {
+                            keep = false;
+                        }
+                    }
+
+                    if (keep) {
+                        subjectInts2.push(subjectInts1[j]);
                     }
                 }
 
                 subjectInts2 = subjectInts2.filter((val, idx, arr) => arr.indexOf(val) === idx);
-
+//return subjectInts2;
                 // Eliminate numbers in which that are not factors of 'a' values
                 let subjectInts3 = [];
-                let compare = [];
+
                 for (let j = 0; j < subjectInts2.length; j++) {
+                    compare = []
                     for (let i = 0; i < a.length; i++) {
                         compare[i] = subjectInts2[j] % a[i] > 0;
                     }
@@ -59,23 +70,38 @@
                     }
 
                     if (keep) {
-                        console.log("Push: " + subjectInts2[j])
                         subjectInts3.push(subjectInts2[j]);
                     }
                 }
-
+//return subjectInts3;
                 let results = subjectInts3.filter((val, idx, arr) => arr.indexOf(val) === idx);
                 return results.length;
             }
 
             window.onload = function () {
-                let a = [2, 4];
-                let b = [16, 32, 96];
+                //let a = [2, 4];
+                //let b = [16, 32, 96];
                 // 3 numbers: 4, 8, 16
 
                 //let a = [3, 4];
                 //let b = [24, 48];
                 // 2 numbers: 12, 24
+
+                //let a = [2];
+                //let b = [20, 30, 12];
+                // 1 number: 2
+
+                let a = [3, 9, 6];
+                let b = [36, 72];
+                // 
+
+                //let a = [1];
+                //let b = [100];
+                // 
+
+                //let a = [1];
+                //let b = [72, 48];
+                // 
 
                 let result = getTotalX(a, b);
                 document.getElementById('container').innerHTML = result;
