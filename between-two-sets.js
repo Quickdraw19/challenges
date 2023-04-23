@@ -24,11 +24,10 @@
                 let compare = [];
 
                 // Fill subject ints
-                while (counter <= maxB / 2) {
+                while (counter <= maxB) {
                     subjectInts1.push(counter);
                     counter++
                 }
-return subjectInts1;
 
                 // Eliminate possible factors of 'a' values
                 let subjectInts2 = [];
@@ -52,7 +51,7 @@ return subjectInts1;
                 }
 
                 subjectInts2 = subjectInts2.filter((val, idx, arr) => arr.indexOf(val) === idx);
-return subjectInts2;
+
                 // Eliminate numbers in which that are not factors of 'a' values
                 let subjectInts3 = [];
 
@@ -73,60 +72,68 @@ return subjectInts2;
                         subjectInts3.push(subjectInts2[j]);
                     }
                 }
-return subjectInts3;
+
                 let results = subjectInts3.filter((val, idx, arr) => arr.indexOf(val) === idx);
                 return results.length;
             }
 
             window.onload = function () {
-                //let a = [2, 4];
-                //let b = [16, 32, 96];
-                // 3 numbers: 4, 8, 16
-                // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48
+                let results = [], a, b;
+                a = [2, 4];
+                b = [16, 32, 96];
+                results[0] = getTotalX(a, b);
+                // Expected result: 3
+                // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96
                 // Keep only subject ints that are a factor of the ints in `b`: 4,8,16
                 // Keep only remaining subject ints int which the ints in `a` are factors OF: 4,8,16
 
                 
-                //let a = [3, 4];
-                //let b = [24, 48];
-                // 2 numbers: 12, 24
-                // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
+                a = [3, 4];
+                b = [24, 48];
+                results[1] = getTotalX(a, b);
+                // Expected result: 2
+                // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48
                 // Keep only subject ints that are a factor of the ints in `b`: 4,6,8,12,24
                 // Keep only remaining subject ints int which the ints in `a` are factors OF: 12,24
 
 
-                //let a = [2];
-                //let b = [20, 30, 12];
-                // 1 number: 2
-                // Posible subject ints: 2,3,4,5,6,7,8,9,10,11,12,13,14,15
+                a = [2];
+                b = [20, 30, 12];
+                results[2] = getTotalX(a, b);
+                // Expected result: 1
+                // Posible subject ints: 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
                 // Keep only subject ints that are a factor of the ints in `b`: 2
                 // Keep only remaining subject ints int which the ints in `a` are factors OF: 2
 
 
-                let a = [3, 9, 6];
-                let b = [36, 72];
-                // 2 numbers: 18, 36
-                // Posible subject ints: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36
+                a = [3, 9, 6];
+                b = [36, 72];
+                results[3] = getTotalX(a, b);
+                // Expected result: 2
+                // Posible subject ints: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72
                 // Keep only subject ints that are a factor of the ints in `b`: 9,12,18,36
                 // Keep only remaining subject ints int which the ints in `a` are factors OF: 18,36
 
 
-                //let a = [1];
-                //let b = [100];
-                // 
-                // Posible subject ints:
-                // Keep only subject ints that are a factor of the ints in `b`: 
-                // Keep only remaining subject ints int which the ints in `a` are factors OF: 
+                a = [1];
+                b = [100];
+                results[4] = getTotalX(a, b);
+                // Expected result: 9
+                // Posible subject ints: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100
+                // Keep only subject ints that are a factor of the ints in `b`: 1,2,4,5,10,20,25,50,100
+                // Keep only remaining subject ints int which the ints in `a` are factors OF: 1,2,4,5,10,20,25,50,100
 
 
-                //let a = [1];
-                //let b = [72, 48];
-                // 
-                // Posible subject ints:
-                // Keep only subject ints that are a factor of the ints in `b`: 
-                // Keep only remaining subject ints int which the ints in `a` are factors OF: 
-
-                let result = getTotalX(a, b);
+                a = [1];
+                b = [72, 48];
+                results[5] = getTotalX(a, b);
+                // Expected result: 8
+                // Posible subject ints: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72
+                // Keep only subject ints that are a factor of the ints in `b`: 1,2,3,4,6,8,12,24
+                // Keep only remaining subject ints int which the ints in `a` are factors OF: 1,2,3,4,6,8,12,24
+                
+                var result = "";
+                results.forEach(a => result += "<p>" + JSON.stringify(a) + "</p>");
                 document.getElementById('container').innerHTML = result;
             }
         </script>
