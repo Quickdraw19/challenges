@@ -24,10 +24,13 @@
                 let compare = [];
 
                 // Fill subject ints
-                while (counter <= maxB) {
+                while (counter <= maxB / 2) {
                     subjectInts1.push(counter);
                     counter++
                 }
+                
+                // Nothing between maxB and maxB/2 will be a factor except maxB itself
+                subjectInts1.push(maxB);
 
                 // Eliminate possible factors of 'a' values
                 let subjectInts2 = [];
@@ -81,7 +84,7 @@
                 let results = [], a, b;
                 a = [2, 4];
                 b = [16, 32, 96];
-                results[0] = getTotalX(a, b);
+                results[0] = getTotalX(a, b) === 3;
                 // Expected result: 3
                 // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96
                 // Keep only subject ints that are a factor of the ints in `b`: 4,8,16
@@ -90,7 +93,7 @@
                 
                 a = [3, 4];
                 b = [24, 48];
-                results[1] = getTotalX(a, b);
+                results[1] = getTotalX(a, b) === 2;
                 // Expected result: 2
                 // Posible subject ints: 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48
                 // Keep only subject ints that are a factor of the ints in `b`: 4,6,8,12,24
@@ -99,7 +102,7 @@
 
                 a = [2];
                 b = [20, 30, 12];
-                results[2] = getTotalX(a, b);
+                results[2] = getTotalX(a, b) === 1;
                 // Expected result: 1
                 // Posible subject ints: 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
                 // Keep only subject ints that are a factor of the ints in `b`: 2
@@ -108,7 +111,7 @@
 
                 a = [3, 9, 6];
                 b = [36, 72];
-                results[3] = getTotalX(a, b);
+                results[3] = getTotalX(a, b) === 2;
                 // Expected result: 2
                 // Posible subject ints: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72
                 // Keep only subject ints that are a factor of the ints in `b`: 9,12,18,36
@@ -117,7 +120,7 @@
 
                 a = [1];
                 b = [100];
-                results[4] = getTotalX(a, b);
+                results[4] = getTotalX(a, b) === 9;
                 // Expected result: 9
                 // Posible subject ints: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100
                 // Keep only subject ints that are a factor of the ints in `b`: 1,2,4,5,10,20,25,50,100
@@ -126,14 +129,14 @@
 
                 a = [1];
                 b = [72, 48];
-                results[5] = getTotalX(a, b);
+                results[5] = getTotalX(a, b) === 8;
                 // Expected result: 8
                 // Posible subject ints: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72
                 // Keep only subject ints that are a factor of the ints in `b`: 1,2,3,4,6,8,12,24
                 // Keep only remaining subject ints int which the ints in `a` are factors OF: 1,2,3,4,6,8,12,24
                 
                 var result = "";
-                results.forEach(a => result += "<p>" + JSON.stringify(a) + "</p>");
+                results.forEach(a => result += "<p>Pass: " + JSON.stringify(a) + "</p>");
                 document.getElementById('container').innerHTML = result;
             }
         </script>
