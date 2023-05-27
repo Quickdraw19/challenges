@@ -8,43 +8,51 @@ function separateNumbers(s) {
     if (s.length === 1) {
         console.log("NO");
     }
+
+    let digits = getDigits(s);
+
+    let currentNum = Number(s[0]); 
     
-    let subjectNum = Number(s[0]);
-    let doubleDig = false;
-    let tripleDig = false;
-    
-    for (let i = 1; i < s.length; i++) {
-        let test1 = Number(subjectNum) + 1;
-        if (subjectNum === 9) {
-            doubleDig = true;
+    for (let i = 0; i < s.length; i++) {
+        // NEED TO DETECT OF STARTING NUMBER IS MORE THAN ONE DIGITS
+        if (currentNum === 9) {
+            digits++;
         }
 
-        if (subjectNum === 99) {
-            tripleDig = true;
-        }
-        
-        let test2 = doubleDig ? Number(s[i] + s[i + 1]) : Number(s[i]);
-        let test3 = tripleDig ? Number(s[i] + s[i + 2]) : Number(s[i]);
+        // The slice() method returns selected elements in an array, as a new array.
+        // The slice() method selects from a given start, up to a (not inclusive) given end.
+        let num1 = Number(s.slice(i, digits + i));
+        let num2 = Number(s.slice(i + 1, digits + i + 1));
 
-        if ((Number(subjectNum) + 1 === doubleDig ? Number(s[i] + s[i + 1]) : Number(s[i])) || tripleDig ? Number(s[i] + s[i + 2]) : Number(s[i])) {
-            subjectNum = Number(s[i]);
-        } else {
-            console.log("NO");
-            return;
+        if (num1 + 1 !== num2 && (num2 === 0 && num1 === s[i])) {
+            //console.log("NO");
+            return "NO";
         }
 
-        if (doubleDig) {
-            i++;
-        }
+        currentNum++;
     }
     
-    console.log("YES " + s[0]);
+    //console.log("YES " + s[0]);
+    return "YES " + s[0];
 }
 
-//separateNumbers('1234'); //YES 1-GOOD 
-//separateNumbers('91011'); //YES 9 - GOOD
-separateNumbers('99100'); //YES 99 - NO 
-//separateNumbers('101103'); //NO
-//separateNumbers('010203'); //NO
-//separateNumbers('13'); //NO - YES 1
-//separateNumbers('1'); //NO - Outputting NO and YES1
+// let test1 = (separateNumbers('1234') === "YES 1") ? "PASS" : "FAIL";
+// console.log("Test 1: " + test1);
+
+// let test2 = (separateNumbers('91011') === "YES 9") ?  "PASS" : "FAIL";
+// console.log("Test 2: " + test2);
+
+let test3 = (separateNumbers('99100') === "YES 99") ? "PASS" : "FAIL";
+console.log("Test 3: " + test3);
+
+// let test4 = (separateNumbers('101103') === "NO") ? "PASS" : "FAIL";
+// console.log("Test 4: " + test4);
+
+// let test5 = (separateNumbers('010203') === "NO") ? "PASS" : "FAIL";
+// console.log("Test 5: " + test5);
+
+// let test6 = (separateNumbers('13') === "NO") ? "PASS" : "FAIL";
+// console.log("Test 6: " + test6);
+
+// let test7 = (separateNumbers('1') === "NO") ? "PASS" : "FAIL";
+// console.log("Test 7: " + test7);
