@@ -5,7 +5,7 @@
  */
 
 function separateNumbers(s) {
-    let len = Math.floor(s.length / 2); // What only go through half the digits?
+    let len = Math.floor(s.length / 2); // Only look at half the digits because that's the minimum needed for the next number to be sequenctial
 
     for (let i = 1; i <= len; i++) {
         const firstNum = s.slice(0, i); // Get the first number in the string. Starts with one digit in the first iteration, two digits the next, and so on...
@@ -19,14 +19,15 @@ function separateNumbers(s) {
 
         // If the strings match, then it is "beautiful", else repeat the loop to check if the first number is multiple digits
         if (compStr === s) {
-            return "YES " + firstNum;
-            //return console.log("YES", firstNum);
+            //return "YES " + firstNum;
+            console.log("YES" + firstNum);
+            return;
         }
     }
 
     // If the FOR loop ends without find a "beautiful" match, then it must be ugly
-    return "NO";
-    //return console.log("NO");
+    //return "NO";
+    console.log("NO");
 }
 
 let test1 = (separateNumbers('1234') === "YES 1") ? "PASS" : "FAIL";
