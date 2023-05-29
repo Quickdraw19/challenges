@@ -20,7 +20,7 @@ function separateNumbers(s) {
         // If the strings match, then it is "beautiful", else repeat the loop to check if the first number is multiple digits
         if (compStr === s) {
             //return "YES " + firstNum;
-            console.log("YES" + firstNum);
+            console.log("YES " + firstNum);
             return;
         }
     }
