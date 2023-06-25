@@ -1,3 +1,4 @@
+// closestNumbers()
 function myfunction(arr) {
     let sortedArr = arr.sort((a,b) => a - b);
     let minDiff;
@@ -12,17 +13,24 @@ function myfunction(arr) {
         
         if (diff < minDiff) {
             returnArr = [];
-        } else {
             minDiff = diff;
         }
 
-        returnArr.push(sortedArr[i]);
-        returnArr.push(sortedArr[i+1]);
+        if (diff === minDiff) {
+            returnArr.push(sortedArr[i]);
+            returnArr.push(sortedArr[i+1]);
+        }
     }
     
     return returnArr;
 }
 
-console.log(myfunction([-20, -3916237, -357920, -3620601, 7374819, -7330761, 30, 6246457, -6461594, 266854]))
-let test1 = (myfunction([-20, -3916237, -357920, -3620601, 7374819, -7330761, 30, 6246457, -6461594, 266854]) === [-20, 30]) ? "PASS" : "FAIL";
+let funcResult = myfunction([-20, -3916237, -357920, -3620601, 7374819, -7330761, 30, 6246457, -6461594, 266854]);
+let expectedResult = [-20, 30];
+let test1 = (JSON.stringify(funcResult) === JSON.stringify(expectedResult)) ? "PASS" : "FAIL";
 console.log("Test 1: " + test1);
+
+funcResult = myfunction([-5, 15, 25, 71, 63]);
+expectedResult = [63, 71];
+let test2 = (JSON.stringify(funcResult) === JSON.stringify(expectedResult)) ? "PASS" : "FAIL";
+console.log("Test 2: " + test2);
