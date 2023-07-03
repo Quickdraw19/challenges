@@ -1,6 +1,6 @@
 // Minimum Absolute Difference in an Array
 // minimumAbsoluteDifference(arr)
-// TWO TEST CASES TAKING TOO LONG AND NOT GIVING THE ARRAY PASSED IN. NEED TO OPTIMIZE.
+// TWO TEST CASES TAKING TOO LONG AND NOT GIVING THE ARRAY PASSED IN. NEED TO OPTIMIZE. LOOK INTO FILTER AND REDUCE.
 function myfunction(arr) {
     let minDiff = -1;
     const arrLen = arr.length;
