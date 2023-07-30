@@ -2,18 +2,13 @@
 // minimumAbsoluteDifference(arr)
 function myfunction(arr) {
     let minDiff = Number.POSITIVE_INFINITY;
-    const arrLen = arr.length;
     arr.sort((a,b) => a-b);
 
-// TWO TEST CASES TAKING TOO LONG AND NOT GIVING THE ARRAY PASSED IN. NEED TO OPTIMIZE. LOOK INTO FILTER AND REDUCE or use a recursive function.
-    for (let i = 0; i < arrLen; i++) {
-        for (let j = 0; j < arrLen; j++) {
-            if (i === j) continue;
+    for (let i = 0; i < arr.length; i++) {
+        let comp = Math.abs(arr[i] - arr[i + 1]);
 
-            let comp = Math.abs(arr[i] - arr[j]);
-            if (comp < minDiff) {
-                minDiff = comp;
-            }
+        if (comp < minDiff) {
+            minDiff = comp;
         }
     }
 
