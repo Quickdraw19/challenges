@@ -20,6 +20,8 @@ function anagram(s) {
 let test = s1[i];
         if (s2.indexOf(s1[i]) === -1) {
             count++
+        } else {
+            s2 = s2.replace(s1[i], '');
         }
     }
     
@@ -49,6 +51,7 @@ console.log("Test 7: " + test7);
 
 let test8 = (anagram('fdhlvosfpafhalll') === 5) ? "PASS" : "FAIL";
 console.log("Test 8: " + test8);
+
 
 let test9 = (anagram('mvdalvkiopaufl') === 5) ? "PASS" : "FAIL";
 console.log("Test 9: " + test9);
