@@ -33,3 +33,6 @@ Output Format
 function gridChallenge(grid) {
 
 }
+
+let test1 = (gridChallenge['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv']) === "YES") ? "PASS" : "FAIL";
+console.log("Test 1: " + test1);
