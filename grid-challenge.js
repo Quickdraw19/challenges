@@ -36,3 +36,15 @@ function gridChallenge(grid) {
 
 let test1 = (gridChallenge['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv']) === "YES") ? "PASS" : "FAIL";
 console.log("Test 1: " + test1);
+
+let test2 = (gridChallenge['abc', 'lmp', 'qrt']) === "YES") ? "PASS" : "FAIL";
+console.log("Test 2: " + test2);
+
+let test3 = (gridChallenge['mpxz', 'abcd', 'wlmf']) === "NO") ? "PASS" : "FAIL";
+console.log("Test 3: " + test3);
+
+let test4= (gridChallenge['abc', 'hjk', 'mpq', 'rtv']) === "YES") ? "PASS" : "FAIL";
+console.log("Test 4: " + test4);
+
+//let test5 = (gridChallenge[]) === "YES") ? "PASS" : "FAIL";
+//console.log("Test 1: " + test1);
