@@ -22,7 +22,7 @@ const challenge = (s) => {
 
 }
 
-function palindromeIndex(s) {
+const palindromeIndex = (s) => {
   const sLength = s.length;
   
   let beg = 0;
