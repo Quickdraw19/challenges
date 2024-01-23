@@ -34,26 +34,26 @@ Explaination:
 We can start the tour from the second petrol pump.
 */
 
-const challenge = (q) => {
-  const qLen = q.length
+const challenge = (truckStops) => {
+  const circleLen = truckStops.length
   let start = 0
 
   // [0]=fuel, [1]=distance
-  for (let i = 0; i < qLen * 2; i++) {
-    if (i >= qLen) {
-      i = i - qLen
+  for (let i = 0; i < circleLen * 2; i++) {
+    if (i >= circleLen) {
+      i = i - circleLen
     }
 
     let tank = 0
     let stops = 0
     
-    for (let j = i; j < qLen * 2; j++) {
-      if (j >= qLen) {
-        j = j - qLen
+    for (let j = i; j < circleLen * 2; j++) {
+      if (j >= circleLen) {
+        j = j - circleLen
       }
 
-      tank += q[j][0]
-      tank -= q[j][1]
+      tank += truckStops[j][0]
+      tank -= truckStops[j][1]
 
       if (tank < 0) {
         start = i + 1
@@ -62,7 +62,7 @@ const challenge = (q) => {
         stops++
       }
 
-      if (stops === qLen) {
+      if (stops === circleLen) {
         return start
       }
     }
